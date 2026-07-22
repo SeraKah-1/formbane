@@ -58,6 +58,8 @@ npx playwright install chromium
 npm test
 npm run cli -- init
 npm run cli -- fixture simple.html --policy i-dont-care
+# CI-safe (no browser deps):
+npm run cli -- fixture simple.html --offline --policy i-dont-care
 ```
 
 Point at a live URL (headed recommended for captcha):
