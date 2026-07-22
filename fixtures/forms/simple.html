@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simple Contact Form</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 480px; margin: 2rem auto; }
+    label { display: block; margin-top: 0.75rem; font-weight: 600; }
+    input, select, textarea { width: 100%; padding: 0.4rem; margin-top: 0.25rem; }
+    button { margin-top: 1rem; padding: 0.5rem 1rem; }
+  </style>
+</head>
+<body>
+  <h1>Contact</h1>
+  <form id="contact" action="#" method="get" onsubmit="document.getElementById('ok').hidden=false; return false;">
+    <label for="email">Email address</label>
+    <input id="email" name="email" type="email" autocomplete="email" required />
+
+    <label for="phone">Phone</label>
+    <input id="phone" name="phone" type="tel" autocomplete="tel" />
+
+    <label for="full_name">Full name</label>
+    <input id="full_name" name="full_name" type="text" autocomplete="name" required />
+
+    <label for="country">Country</label>
+    <select id="country" name="country" required>
+      <option value="">Select…</option>
+      <option value="us">United States</option>
+      <option value="id">Indonesia</option>
+      <option value="uk">United Kingdom</option>
+    </select>
+
+    <fieldset>
+      <legend>How satisfied are you?</legend>
+      <label><input type="radio" name="satisfaction" value="1" required /> Very dissatisfied</label>
+      <label><input type="radio" name="satisfaction" value="2" /> Dissatisfied</label>
+      <label><input type="radio" name="satisfaction" value="3" /> Neutral</label>
+      <label><input type="radio" name="satisfaction" value="4" /> Satisfied</label>
+      <label><input type="radio" name="satisfaction" value="5" /> Very satisfied</label>
+    </fieldset>
+
+    <label for="feedback">Feedback</label>
+    <textarea id="feedback" name="feedback" rows="3"></textarea>
+
+    <label>
+      <input type="checkbox" name="marketing" value="yes" />
+      Send me marketing emails
+    </label>
+
+    <label>
+      <input type="checkbox" name="legal" value="1" />
+      I certify under penalty of perjury that this is correct
+    </label>
+
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" autocomplete="new-password" />
+
+    <button type="submit">Submit</button>
+  </form>
+  <p id="ok" hidden>Submitted OK</p>
+</body>
+</html>

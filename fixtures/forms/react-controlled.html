@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>React-style Controlled Inputs</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 480px; margin: 2rem auto; }
+    label { display: block; margin-top: 0.75rem; font-weight: 600; }
+    input { width: 100%; padding: 0.4rem; }
+    #mirror { margin-top: 1rem; padding: 0.75rem; background: #f4f4f5; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Controlled form simulation</h1>
+  <label for="email">Email address</label>
+  <input id="email" name="email" type="email" />
+  <label for="full_name">Full name</label>
+  <input id="full_name" name="full_name" type="text" />
+  <div id="mirror">State: <code id="state">{}</code></div>
+  <script>
+    // Simulate React controlled inputs: value only updates on input events via setter path
+    const state = { email: "", full_name: "" };
+    function bind(id, key) {
+      const el = document.getElementById(id);
+      el.addEventListener("input", () => {
+        state[key] = el.value;
+        document.getElementById("state").textContent = JSON.stringify(state);
+      });
+      // interceptor like React: overwriting .value without input event is "ignored" for state
+      Object.defineProperty(el, "value", {
+        get() { return this.getAttribute("value") || state[key] || ""; },
+        set(v) {
+          this.setAttribute("value", v);
+          // without input event, React state would not update — we only update attr
+        },
+        configurable: true,
+      });
+    }
+    bind("email", "email");
+    bind("full_name", "full_name");
+  </script>
+</body>
+</html>

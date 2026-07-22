@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Multi-page Survey</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 480px; margin: 2rem auto; }
+    label { display: block; margin-top: 0.75rem; }
+    .page { display: none; }
+    .page.active { display: block; }
+    button { margin-top: 1rem; margin-right: 0.5rem; }
+  </style>
+</head>
+<body>
+  <h1>Multi-page Survey</h1>
+  <div id="p1" class="page active">
+    <h2>Page 1</h2>
+    <label for="email">Email address</label>
+    <input id="email" name="email" type="email" required />
+    <label for="age">Age</label>
+    <input id="age" name="age" type="number" min="18" max="99" />
+    <button type="button" id="next1">Next</button>
+  </div>
+  <div id="p2" class="page">
+    <h2>Page 2</h2>
+    <fieldset>
+      <legend>How likely are you to recommend us?</legend>
+      <label><input type="radio" name="nps" value="0" /> 0</label>
+      <label><input type="radio" name="nps" value="5" /> 5</label>
+      <label><input type="radio" name="nps" value="7" /> 7</label>
+      <label><input type="radio" name="nps" value="10" /> 10</label>
+    </fieldset>
+    <label for="comment">Why?</label>
+    <textarea id="comment" name="comment"></textarea>
+    <button type="button" id="back2">Back</button>
+    <button type="button" id="submit2">Submit</button>
+  </div>
+  <p id="done" hidden>All done</p>
+  <script>
+    const p1 = document.getElementById("p1");
+    const p2 = document.getElementById("p2");
+    document.getElementById("next1").onclick = () => {
+      p1.classList.remove("active");
+      p2.classList.add("active");
+    };
+    document.getElementById("back2").onclick = () => {
+      p2.classList.remove("active");
+      p1.classList.add("active");
+    };
+    document.getElementById("submit2").onclick = () => {
+      document.getElementById("done").hidden = false;
+    };
+  </script>
+</body>
+</html>

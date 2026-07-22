@@ -1,0 +1,52 @@
+{
+  "name": "formbane",
+  "version": "0.1.0",
+  "main": "./dist/cli/index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "node --import tsx --test tests/core/planner.test.ts tests/llm/client.test.ts tests/browser/offline-fixture.test.ts",
+    "cli": "tsx src/cli/index.ts",
+    "fixtures:serve": "tsx scripts/serve-fixtures.ts",
+    "prepublishOnly": "npm run build",
+    "test:browser": "node --import tsx --test tests/browser/fixture-flow.test.ts"
+  },
+  "keywords": [
+    "form",
+    "survey",
+    "playwright",
+    "agent",
+    "automation",
+    "bureaucracy"
+  ],
+  "author": "SeraKah-1",
+  "license": "MIT",
+  "description": "Local form & survey agent — scan, plan, fill, human-gated submit",
+  "type": "module",
+  "bin": {
+    "formbane": "./dist/cli/index.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SeraKah-1/formbane.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SeraKah-1/formbane/issues"
+  },
+  "homepage": "https://github.com/SeraKah-1/formbane#readme",
+  "dependencies": {
+    "commander": "^14.0.3",
+    "playwright": "^1.61.1",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.1",
+    "tsx": "^4.23.1",
+    "typescript": "^7.0.2"
+  }
+}

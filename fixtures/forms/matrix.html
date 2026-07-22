@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Matrix Likert</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 640px; margin: 2rem auto; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 0.5rem; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>Rate the following</h1>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Bad</th>
+        <th>Okay</th>
+        <th>Good</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Speed</th>
+        <td><input type="radio" name="speed" value="bad" aria-label="Speed Bad" /></td>
+        <td><input type="radio" name="speed" value="okay" aria-label="Speed Okay" /></td>
+        <td><input type="radio" name="speed" value="good" aria-label="Speed Good" /></td>
+      </tr>
+      <tr>
+        <th scope="row">Clarity</th>
+        <td><input type="radio" name="clarity" value="bad" aria-label="Clarity Bad" /></td>
+        <td><input type="radio" name="clarity" value="okay" aria-label="Clarity Okay" /></td>
+        <td><input type="radio" name="clarity" value="good" aria-label="Clarity Good" /></td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="submit">Submit</button>
+</body>
+</html>

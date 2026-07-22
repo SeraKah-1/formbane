@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.formbane/
+browser-profiles/
+*.log
+.env
+.env.*
+!.env.example
+coverage/
+.DS_Store
+*.vault
+sessions/
+submissions/
+playwright-report/
+test-results/
